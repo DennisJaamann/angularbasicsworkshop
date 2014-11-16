@@ -58,7 +58,7 @@ To be able to use these tools, we need to install them in the NodeJS global name
 
 Open a cmd or terminal and execute the following command:
 
-<code>npm install -g grunt-cli karma-cli bower</code>
+<code>npm install -g grunt-cli karma-cli bower rimraf</code>
 
 ## Getting started
 
@@ -86,7 +86,7 @@ Run following command:
 
 <code>npm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-pngquant</code>
 
-### Bower (Optional)
+### Bower
 
 In some environments, typically behind a proxy the bower install step might fail.
 This also fails mostly on windows systems.
