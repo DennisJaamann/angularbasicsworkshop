@@ -10,9 +10,9 @@
    * Main module of the application.
    */
   angular
-    .module('solutionApp', []) //TODO: 3. create a controller 'ApplicationController' on the module, pass $scope and $log
-    .controller('ApplicationController', function ($scope, $log) {
-      $log.log('Initializing application'); //TODO: 4. log 'initializing application'
-      $scope.hello = 'Hello Ordina'; //TODO: 5. create a scope variable called 'hello'
+    .module('solutionApp', ['common'])//TODO: 6. Inject the common module
+    .controller('ApplicationController', function ($scope, $log) { //TODO: 5. Remove the controller
+      $log.log('Initializing application');
+      $scope.hello = 'Hello Ordina';
     });
 })();
