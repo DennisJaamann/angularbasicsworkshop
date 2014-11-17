@@ -10,9 +10,5 @@
    * Main module of the application.
    */
   angular
-    .module('solutionApp', ['common'])//TODO: 6. Inject the common module
-    .controller('ApplicationController', function ($scope, $log) { //TODO: 5. Remove the controller
-      $log.log('Initializing application');
-      $scope.hello = 'Hello Ordina';
-    });
+    .module('solutionApp', ['common']);//TODO: 6. Inject the common module
 })();
