@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="styles/app.css">
   <!-- endbuild -->
 </head>
-<body ng-app="solutionApp"> <!--TODO: 1. Remove the application controller-->
+<body ng-app="solutionApp">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
@@ -24,24 +24,15 @@
 <!-- Add your site or application content here -->
 <div class="container">
   <div class="header">
-    <!-- TODO: 7. Create a new file views/common/navigation.html and include -->
-    <!-- Content of views/common/navigation.html
-    <ul class="nav nav-pills pull-right" data-ng-controller="NavigationController">
-      <li><a data-ng-href="#/">Overview</a></li>
-      <li><a data-ng-href="#/about">About</a></li>
-      <li><a data-ng-href="#/contact">Contact</a></li>
-    </ul>
-    -->
     <div data-ng-include src="'views/common/navigation.html'"></div>
     <div>
-      <a class="ordina"></a>
+      <a class="ordina" data-ng-href="/#"></a>
       <h3 class="text-muted">Ordina tweets</h3>
     </div>
   </div>
 
-  <div>
-    {{hello}}
-  </div>
+  <!--TODO: 7. Create a div with a data-ng-view directive to enable routing-->
+  <div data-ng-view=""></div>
 
   <div class="footer">
     <p><span class="glyphicon glyphicon-heart"></span> from the Frontend & UX CL's</p>
@@ -67,10 +58,22 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<!-- TODO: 2. Import scripts/common/module.js -->
 <script src="scripts/common/module.js"></script>
-<!-- TODO: 3. Import scripts/common/controllers/navigationController.js -->
-<script src="scripts/common/controllers/navigationController.js"></script>
+
+<!-- TODO: 1. Import scripts/tweets/module.js -->
+<script src="scripts/tweets/module.js"></script>
+<!-- TODO: 2. Import scripts/tweets/controllers/tweetsOverviewController.js -->
+<script src="scripts/tweets/controllers/tweetsOverviewController.js"></script>
+<!-- TODO: 3. Import scripts/contact/module.js -->
+<script src="scripts/about/module.js"></script>
+<!-- TODO: 4. Import scripts/contact/controllers/contactController.js -->
+<script src="scripts/about/controllers/aboutController.js"></script>
+<!-- TODO: 5. Import scripts/contact/module.js -->
+<script src="scripts/contact/module.js"></script>
+<!-- TODO: 6. Import scripts/contact/controllers/contactController.js -->
+<script src="scripts/contact/controllers/contactController.js"></script>
+
+
 <!-- endbuild -->
 </body>
 </html>
