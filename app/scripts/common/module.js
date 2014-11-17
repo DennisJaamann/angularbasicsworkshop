@@ -9,5 +9,6 @@
    *
    * Common module of the application.
    */
-  angular.module('common', []); //TODO: 4. Create and instantiate a new module called 'common'
+
+   //TODO: 4. Create and instantiate a new module called 'common'
 })();
