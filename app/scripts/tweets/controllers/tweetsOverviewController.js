@@ -10,8 +10,12 @@
    */
   angular.module('tweets')
     .controller('TweetsOverviewController', function ($scope,$log, TwitterSearchService) {
-      $scope.tweets = TwitterSearchService.searchTweets('Ordina Belgium').th;
 
-      $log.log('Number of tweets: ' + $scope.tweets.length);
+      var searchTweetsSuccessHandler = function(result){
+        $scope.tweets = result.statuses;
+        $log.log('Number of tweets: ' + $scope.tweets.length);
+      };
+
+      TwitterSearchService.searchTweets('Ordina Belgium').then(searchTweetsSuccessHandler);
     });
 })();
