@@ -31,7 +31,10 @@ By doing this you will not have to prepend every node or npm command with the su
 Open a terminal and type the following commands:
 
 <code>
-sudo chown -R $USER ~/.npm<br/>
+sudo chown -R $USER ~/.npm
+</code>
+
+<code>
 sudo chown -R $USER /usr/local/lib/node_modules
 </code>
 
