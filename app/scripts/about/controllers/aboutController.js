@@ -9,9 +9,12 @@
    * Controller of the about module
    */
   angular.module('about')
-    .controller('AboutController', function ($scope) {
-        var title = 'About';
-        var content = 'Content'
-        $scope.about = {title: title, content: content};
+    .controller('AboutController', function ($scope,AboutService) {
+
+      var fetchAboutSuccessHandler = function (result) {
+        $scope.about = result;
+      };
+
+      AboutService.fetchAbout().then(fetchAboutSuccessHandler);
     });
 })();

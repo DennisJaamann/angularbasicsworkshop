@@ -9,10 +9,11 @@
    * Controller of the contact module
    */
   angular.module('contact')
-    .controller('ContactController', function ($scope) {
-      var title = 'Contact';
-      var contacts = ['jan.dewilde@ordina.be', 'dennis.jaamann@ordina.be', 'http://www.ordina.be'];
+    .controller('ContactController', function ($scope,ContactService) {
+      var fetchContactSuccessHandler = function (result) {
+        $scope.contact = result;
+      };
 
-      $scope.contact = {title: title, contacts: contacts};
+      ContactService.fetchContact().then(fetchContactSuccessHandler);
     });
 })();

@@ -9,7 +9,9 @@
    * Controller of the tweets module
    */
   angular.module('tweets')
-    .controller('TweetsOverviewController', function ($scope) {
-      $scope.tweets = ['Tweet1','Tweet2','Tweet3','Tweet4'];
+    .controller('TweetsOverviewController', function ($scope,$log, TwitterSearchService) {
+      $scope.tweets = TwitterSearchService.searchTweets('Ordina Belgium');
+
+      $log.log('Number of tweets: ' + $scope.tweets.length);
     });
 })();

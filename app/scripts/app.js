@@ -10,21 +10,25 @@
    * Main module of the application.
    */
   angular
-    .module('solutionApp', ['ngRoute','common','tweets','about','contact']).config(function ($routeProvider) { //TODO: 8. Inject ngRoute module
+    .module('solutionApp', ['ngRoute','ngResource','common','tweets','about','contact']).config(function ($routeProvider) { //TODO: 5. Inject ngResource
       $routeProvider
         .when('/', {
-          templateUrl: 'views/tweets/tweetsOverview.html', //TODO: 9. When default route, load tweetsOverview.html and use TweetsOverviewController
+          templateUrl: 'views/tweets/tweetsOverview.html',
           controller: 'TweetsOverviewController'
         })
+        .when('/tweetDetail/:id',{
+          templateUrl:'views/tweets/tweetDetail.html', //TODO: 6. When /tweetdetail/:id, load tweetdetail.html and use TweetDetailController
+          controller:'TweetDetailController'
+        })
         .when('/about', {
-          templateUrl: 'views/about/about.html', //TODO: 10. When /about, load about.html and use AboutController
+          templateUrl: 'views/about/about.html',
           controller: 'AboutController'
         })
         .when('/contact', {
-          templateUrl: 'views/contact/contact.html', //TODO: 11. When /contact, load contact.html and use ContactController
+          templateUrl: 'views/contact/contact.html',
           controller: 'ContactController'
         }).otherwise({
-          redirectTo: '/' //TODO: 12. Otherwise redirect to default route
+          redirectTo: '/'
         });
     });
 })();
