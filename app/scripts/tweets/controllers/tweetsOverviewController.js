@@ -10,7 +10,7 @@
    */
   angular.module('tweets')
     .controller('TweetsOverviewController', function ($scope,$log, TwitterSearchService) {
-      $scope.tweets = TwitterSearchService.searchTweets('Ordina Belgium');
+      $scope.tweets = TwitterSearchService.searchTweets('Ordina Belgium').th;
 
       $log.log('Number of tweets: ' + $scope.tweets.length);
     });

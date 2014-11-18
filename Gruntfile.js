@@ -71,12 +71,32 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+      proxies: [{
+        context: 'doSearch',
+        host: 'api.twitter.com',
+        proto: "https",
+        rewrite: {
+          'doSearch': "1.1/search/tweets.json"
+        },
+        /*
+         The OAuth info, you can access https://dev.twitter.com/apps/[Your-Twitter-App-Id]/oauth.
+         */
+        oauth: {
+          consumer_key: 'Pdh8FXGCBowMeEdZjxOKx2rGk', // Your consumer key
+          consumer_secret: 'G37Idd5ErRSrVnhVTEj5AGL9ZdgaLllkym6Y6nKRrgoDFu7ByT', // Your consumer secret
+          token: '270880805-USV3zTFrTNaPfMTD98M8TGQVZ8sfAPqvx2u3F2Uz', // Your access token
+          token_secret: 'IjhOGcqg93LB7s6F0w1KXQXYCMyCcyrdJUKjn2kxECx7c' // Your access secret
+        }
+      }],
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
+          middleware: function(connect, options) {
+            // Setup the proxy
             return [
+              require('grunt-nest-proxy/lib/proxy').request,
               connect.static('.tmp'),
+              connect.static('test'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
@@ -365,6 +385,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
+      'nest_proxy',
       'connect:livereload',
       'watch'
     ]);
