@@ -48,7 +48,10 @@ npm install -g npm
 Open a cmd and navigate to the installation folder.
 
 <code>
-cd C:\Program Files (x86)\nodejs<br/>
+cd C:\Program Files (x86)\nodejs
+</code>
+
+<code>
 npm install -g npm
 </code>
 
@@ -66,7 +69,7 @@ Open a cmd or terminal and execute the following command:
 
 Open up a cmd or use sourcetree to clone the repository.
 
-<code>git clone https://github.com/DennisJaamann/angularbasics.git</code>
+<code>git clone https://github.com/DennisJaamann/angularbasicsworkshop.git</code>
 
 ### Initialize node modules needed by the project
 
@@ -102,7 +105,10 @@ mkdir bower_components
 Open a cmd and set the proxy with the following command:
 
 <code>
-set HTTP_PROXY=http://user:password@proxy.domain.com:port<br/>
+set HTTP_PROXY=http://user:password@proxy.domain.com:port
+</code>
+
+<code>
 set HTTPS_PROXY=http://user:password@proxy.domain.com:port
 </code>
 
