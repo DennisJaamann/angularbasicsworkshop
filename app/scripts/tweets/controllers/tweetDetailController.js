@@ -9,9 +9,12 @@
    * Controller of the tweets Module
    */
   angular.module('tweets')
-    .controller('TweetDetailController', function ($scope,$log,id, TwitterSearchService) {
-      $scope.tweet = TwitterSearchService.searchTweetById(id);
+    .controller('TweetDetailController', function ($scope,$log,$routeParams,TwitterSearchService) {
+      var searchTweetByIdSuccessHandler = function(result){
+        $scope.tweet = result;
+        $log.log('Tweet ' + $scope.tweet);
+      };
 
-      $log.log('Tweet ' + $scope.tweet);
+      TwitterSearchService.searchTweetById($routeParams.id).then(searchTweetByIdSuccessHandler);
     });
 })();

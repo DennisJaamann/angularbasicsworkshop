@@ -78,6 +78,7 @@ module.exports = function (grunt) {
         rewrite: {
           'doSearch': "1.1/search/tweets.json"
         },
+
         /*
          The OAuth info, you can access https://dev.twitter.com/apps/[Your-Twitter-App-Id]/oauth.
          */
@@ -86,7 +87,24 @@ module.exports = function (grunt) {
           consumer_secret: 'G37Idd5ErRSrVnhVTEj5AGL9ZdgaLllkym6Y6nKRrgoDFu7ByT', // Your consumer secret
           token: '270880805-USV3zTFrTNaPfMTD98M8TGQVZ8sfAPqvx2u3F2Uz', // Your access token
           token_secret: 'IjhOGcqg93LB7s6F0w1KXQXYCMyCcyrdJUKjn2kxECx7c' // Your access secret
-        }
+        }},
+        {
+          context: 'searchById',
+          host: 'api.twitter.com',
+          proto: "https",
+          rewrite: {
+            'searchById':'1.1/statuses/show.json'
+          },
+
+          /*
+           The OAuth info, you can access https://dev.twitter.com/apps/[Your-Twitter-App-Id]/oauth.
+           */
+          oauth: {
+            consumer_key: 'Pdh8FXGCBowMeEdZjxOKx2rGk', // Your consumer key
+            consumer_secret: 'G37Idd5ErRSrVnhVTEj5AGL9ZdgaLllkym6Y6nKRrgoDFu7ByT', // Your consumer secret
+            token: '270880805-USV3zTFrTNaPfMTD98M8TGQVZ8sfAPqvx2u3F2Uz', // Your access token
+            token_secret: 'IjhOGcqg93LB7s6F0w1KXQXYCMyCcyrdJUKjn2kxECx7c' // Your access secret
+          }
       }],
       livereload: {
         options: {
