@@ -9,11 +9,7 @@
    * Controller of the contact module
    */
   angular.module('contact')
-    .controller('ContactController', function ($scope,ContactService) {
-      var fetchContactSuccessHandler = function (result) {
-        $scope.contact = result;
-      };
-
-      ContactService.fetchContact().then(fetchContactSuccessHandler);
+    .controller('ContactController', function ($scope,contact) {
+        $scope.contact = contact;
     });
 })();

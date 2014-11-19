@@ -9,13 +9,8 @@
    * Controller of the tweets module
    */
   angular.module('tweets')
-    .controller('TweetsOverviewController', function ($scope,$log, TwitterSearchService) {
-
-      var searchTweetsSuccessHandler = function(result){
-        $scope.tweets = result.statuses;
+    .controller('TweetsOverviewController', function ($scope,$log,tweets) { //TODO: 4. Inject tweets & put tweet.statuses on scope
+        $scope.tweets = tweets.statuses;
         $log.log('Number of tweets: ' + $scope.tweets.length);
-      };
-
-      TwitterSearchService.searchTweets('Ordina').then(searchTweetsSuccessHandler);
     });
 })();

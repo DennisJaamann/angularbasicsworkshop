@@ -14,19 +14,39 @@
       $routeProvider
         .when('/', {
           templateUrl: 'views/tweets/tweetsOverview.html',
-          controller: 'TweetsOverviewController'
+          controller: 'TweetsOverviewController', //TODO: 1. Create a resolver fetching all tweets from the TwitterSearchService
+          resolve: {
+            tweets: function(TwitterSearchService){
+              return TwitterSearchService.searchTweets('Ordina');
+            }
+          }
         })
         .when('/tweetDetail/:id',{
           templateUrl:'views/tweets/tweetDetail.html',
-          controller:'TweetDetailController'
+          controller:'TweetDetailController', //TODO: 2. Create a resolver fetching tweet details by id from the TwitterSearchService (use $route.current.params.id)
+          resolve: {
+            tweet: function(TwitterSearchService,$route){
+              return TwitterSearchService.searchTweetById($route.current.params.id);
+            }
+          }
         })
         .when('/about', {
           templateUrl: 'views/about/about.html',
-          controller: 'AboutController'
+          controller: 'AboutController',
+          resolve: {
+            about: function(AboutService){
+              return AboutService.fetchAbout();
+            }
+          }
         })
         .when('/contact', {
           templateUrl: 'views/contact/contact.html',
-          controller: 'ContactController'
+          controller: 'ContactController',
+          resolve: {
+            contact: function(ContactService){
+              return ContactService.fetchContact();
+            }
+          }
         }).otherwise({
           redirectTo: '/'
         });
