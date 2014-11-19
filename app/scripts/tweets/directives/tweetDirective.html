@@ -1,1 +1,17 @@
-<a data-ng-href="#/tweetDetail/{{tweet.id_str}}"><div class="list-group-item">{{tweet.text}}</div></a>
+<div>
+  <a data-ng-href="#/tweetDetail/{{tweet.id_str}}">
+    <div class="list-group-item">
+      <div>{{tweet.created_at}}</div> <!-- TODO: 7. Show the created_at date in the directive -->
+      <br/>
+      <div>
+        <img data-ng-src="{{tweet.user.profile_image_url}}"/> <!-- TODO: 10. Show the tweet.user.profile_image_url in an image tag -->
+        <h3>{{tweet.text}}</h3>>
+      </div>
+      <br/>
+      <div>{{'Posted by ' + tweet.user.name}}</div> <!-- TODO: 8. Show the tweet.user.name -->
+      <div>{{'From ' + tweet.place.name + ', ' + tweet.place.country}}</div> <!-- TODO: 9. Show the tweet.place.name and tweet.place.country -->
+    </div>
+  </a>
+</div>
+
+
