@@ -9,8 +9,7 @@
    * Controller of the tweets module
    */
   angular.module('tweets')
-    .controller('TweetsOverviewController', function ($scope,$log,tweets) { //TODO: 4. Inject tweets & put tweet.statuses on scope
-        $scope.tweets = tweets.statuses;
+    .controller('TweetsOverviewController', function ($scope,$log) { //TODO: 4. Inject tweets & put tweet.statuses on scope
         $log.log('Number of tweets: ' + $scope.tweets.length);
     });
 })();
